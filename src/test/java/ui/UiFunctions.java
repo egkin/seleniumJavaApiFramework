@@ -50,11 +50,11 @@ public class UiFunctions {
         waitToLoad(selector);
         List<Integer> numbers = new ArrayList<>();
         WebElement element = driver.findElement(By.xpath(selector));
-        String text = element.getText();
-        String[] integers = text.split("\\D+");
-        for (String integer : integers) {
-            if (!integer.isEmpty()) {
-                numbers.add(Integer.parseInt(integer));
+        String date_as_text = element.getText();
+        String[] digits = date_as_text.split("\\D+");
+        for (String digit : digits) {
+            if (!digit.isEmpty()) {
+                numbers.add(Integer.parseInt(digit));
             }
         }
         return numbers;
