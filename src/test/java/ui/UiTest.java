@@ -22,23 +22,17 @@ public class UiTest {
 
     @Test
     void openMaximaSite() {
-        UiFunctions.openPage();
-
         assertEquals(UiTestData.title, UiFunctions.driver().getTitle());
     }
 
     @Test
     void testManoAciu() {
-        UiFunctions.openPage();
         UiFunctions.navigateTo(Selectors.mano_aciu);
-        assertEquals(
-                UiTestData.aciu_title,
-                UiFunctions.getText(Selectors.aciu_tite));
+        assertEquals(UiTestData.aciu_title, UiFunctions.getText(Selectors.aciu_tite));
     }
 
     @Test
     void testCorrectOfferDay() {
-        UiFunctions.openPage();
         int current_day = UiFunctions.getNumbers(Selectors.date).get(1);
         assertEquals(UiTestData.day, current_day);
     }
