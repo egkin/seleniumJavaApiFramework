@@ -12,13 +12,10 @@ public class WebDriver {
 
     public static org.openqa.selenium.WebDriver browserStart() {
         if (driver == null) {
-            WebDriverManager.chromedriver()
-                    .browserVersion(TestConfig.chrome_version)
-                    .setup();
+            WebDriverManager.chromedriver().browserVersion(TestConfig.chrome_version).setup();
             driver = new ChromeDriver();
             driver.manage().window().maximize();
-            driver.manage().timeouts()
-                    .implicitlyWait(Duration.ofSeconds(TestConfig.wait_duration));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TestConfig.wait_duration));
         }
         return driver;
     }

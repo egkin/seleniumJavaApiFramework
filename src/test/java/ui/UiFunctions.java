@@ -1,5 +1,6 @@
 package ui;
 
+import config.Selectors;
 import config.UiTestData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -44,6 +45,11 @@ public class UiFunctions {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(selector)));
         System.out.print(element.getText());
+    }
+
+    public  static int numberOfOffers() {
+        List<WebElement> offer_date = UiFunctions.driver().findElements(By.xpath(Selectors.offer_date));
+        return offer_date.size();
     }
 
     public static List<Integer> getNumbers(String selector) {
