@@ -7,19 +7,23 @@ import org.json.JSONObject;
 
 public class ApiFunctions {
 
-    public static Response getUser(int id) {
+    public static Response getUser(int id){
         return RestAssured.given().get(TestConfig.api_base_url + "/users/" + id);
     }
 
-    public static String getUserName(int id) {
+    public static Response getUsers(){
+        return RestAssured.given().get(TestConfig.api_base_url + "/users/");
+    }
+
+    public static String getUserName(int id){
         return getUser(id).jsonPath().getString("firstName");
     }
 
-    public static String getUserRole(int id) {
+    public static String getUserRole(int id){
         return getUser(id).jsonPath().getString("role");
     }
 
-    public static int getUserAge(int id) {
+    public static int getUserAge(int id){
         return getUser(id).jsonPath().getInt("age");
     }
 
