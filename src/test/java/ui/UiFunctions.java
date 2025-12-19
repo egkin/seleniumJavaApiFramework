@@ -44,7 +44,6 @@ public class UiFunctions {
     public static void waitToLoad(String selector) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(selector)));
-        System.out.print(element.getText());
     }
 
     public static int numberOfOffers() {
