@@ -48,7 +48,7 @@ public class ApiTest {
                 .param("lastName", ApiTestData.user_last_name)
                 .getList("findAll { it.firstName == firstName && it.lastName == lastName }");
 
-        boolean userFound = users.size() > 0;
+        boolean userFound = !users.isEmpty();
         assertTrue(userFound, "User '"+ApiTestData.user_name+" "+ApiTestData.user_last_name+" is not found!");
     }
 }
