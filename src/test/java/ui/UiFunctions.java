@@ -47,7 +47,7 @@ public class UiFunctions {
         System.out.print(element.getText());
     }
 
-    public  static int numberOfOffers() {
+    public static int numberOfOffers() {
         List<WebElement> offer_date = UiFunctions.driver().findElements(By.xpath(Selectors.offer_date));
         return offer_date.size();
     }

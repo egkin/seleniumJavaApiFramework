@@ -1,10 +1,14 @@
 package api;
 
 import config.ApiTestData;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ApiTest {
 
@@ -35,11 +39,16 @@ public class ApiTest {
     @Test
     void testUserIsFound() {
         Response response = ApiFunctions.getUsers();
-        boolean userExists = response.jsonPath()
+
+        JsonPath jsonPath = response.jsonPath();
+        jsonPath.setRootPath("users");
+
+        List<Object> users = jsonPath
                 .param("firstName", ApiTestData.user_name)
                 .param("lastName", ApiTestData.user_last_name)
-                .getList("data.findAll { it.firstName == firstName && it.lastName == lastName }")
-                .size() > 0;
+                .getList("findAll { it.firstName == firstName && it.lastName == lastName }");
 
+        boolean userFound = users.size() > 0;
+        assertTrue(userFound, "User '"+ApiTestData.user_name+" "+ApiTestData.user_last_name+" is not found!");
     }
 }
