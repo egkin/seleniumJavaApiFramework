@@ -14,6 +14,7 @@ public class UiTest {
     void startBrowser() {
         UiFunctions.openPage();
     }
+
     @AfterEach
     void closeBrowser() {
         UiFunctions.closeBrowser();

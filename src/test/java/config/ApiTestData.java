@@ -9,5 +9,7 @@ public class ApiTestData {
     public static int user_age = 29;
     public static String new_user_name = "Homer";
     public static String new_user_role = "Safety inspector";
+    public static String reqres_user_first_name = "Charles";
+    public static String reqres_user_last_name = "Morris";
 
 }
