@@ -54,8 +54,7 @@ public class UiFunctions {
     public static List<Integer> getNumbers(String selector) {
         waitToLoad(selector);
         List<Integer> numbers = new ArrayList<>();
-        WebElement element = driver.findElement(By.xpath(selector));
-        String date_as_text = element.getText();
+        String date_as_text = driver.findElement(By.xpath(selector)).getText();
         String[] digits = date_as_text.split("\\D+");
         for (String digit : digits) {
             if (!digit.isEmpty()) {
